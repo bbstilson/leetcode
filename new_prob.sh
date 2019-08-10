@@ -24,3 +24,4 @@ echo "New files created in $new_path"
 ls $new_path
 echo ""
 echo "Don't forget to update the Table of Contents!"
+echo "[$2]($new_path)"
