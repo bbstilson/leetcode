@@ -1,7 +1,7 @@
 import scala.util.Try
 import scala.collection.immutable.Queue
 
-object TreasureIsland {
+object Solution {
   val m1 = Array(
     Array('O','O','O','O'),
     Array('D','O','D','O'),
