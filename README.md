@@ -37,15 +37,21 @@ Don't forget to update the Table of Contents!
 ## Easy
 
 [Two Sum](./easy/two_sum)
+
 [Longest Common Prefix](./easy/longest_common_prefix)
+
 [Merge Two Sorted Lists](./easy/merge_two_sorted_lists)
+
 [Palindrome Number](./easy/palindrome_number)
+
 [reverse Integer](./easy/reverse_integer)
 
 ## Medium
 
 [Valid Sudoku](./medium/valid_sudoku)
+
 [Combination Sum](./medium/combination_sum)
+
 [Container With Most Water](./medium/container_with_most_water)
 
 ## Hard
