@@ -19,4 +19,4 @@ scalac ./easy/EasyProb.scala && scala EasyProb
 
 ## Other
 
-- [Treasure Island](./other/TreasureIsland.md)
+- [Treasure Island](./other/treasure_island)
