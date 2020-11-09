@@ -4,18 +4,21 @@ Write a function to find the longest common prefix string amongst an array of st
 
 If there is no common prefix, return an empty string "".
 
-Example 1:
-```
+## Example 1
+
+```plaintext
 Input: ["flower","flow","flight"]
 Output: "fl"
 ```
 
-Example 2:
-```
+## Example 2
+
+```plaintext
 Input: ["dog","racecar","car"]
 Output: ""
 Explanation: There is no common prefix among the input strings.
 ```
-Note:
+
+## Note
 
 All given inputs are in lowercase letters a-z.

@@ -1,4 +1,5 @@
 object Solution {
+
   def main(args: Array[String]): Unit = {
     println(isPalindrome(121))
   }

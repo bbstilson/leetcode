@@ -2,18 +2,23 @@
 
 Given a 32-bit signed integer, reverse digits of an integer.
 
-Example 1:
-```
+## Example 1
+
+```plaintext
 Input: 123
 Output: 321
 ```
-Example 2:
-```
+
+## Example 2
+
+```plaintext
 Input: -123
 Output: -321
 ```
-Example 3:
-```
+
+## Example 3
+
+```plaintext
 Input: 120
 Output: 21
 ```

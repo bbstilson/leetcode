@@ -1,1 +1,6 @@
-*.class
+**/out/
+**/.bloop/
+**/.vscode/
+**/.metals/
+*/target/
+**/.ammonite/*

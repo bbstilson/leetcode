@@ -1,6 +1,7 @@
 import scala.util.Try
 
 object Solution {
+
   def main(args: Array[String]): Unit = {
     println(reverse(123))
     println(reverse(-123))
@@ -13,9 +14,8 @@ object Solution {
       .abs(x)
       .toString
       .reverse
-    
-    Try(rev.toInt)
-      .toOption
+
+    Try(rev.toInt).toOption
       .map { n => if (isNeg) n * -1 else n }
       .getOrElse(0)
   }

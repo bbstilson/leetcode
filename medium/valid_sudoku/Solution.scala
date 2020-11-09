@@ -10,8 +10,8 @@ object Solution {
 
   def isValidSudoku(board: Board): Boolean = {
     checkHorizontal(board) &&
-      checkHorizontal(board.transpose) &&
-      checkBoxes(board)
+    checkHorizontal(board.transpose) &&
+    checkBoxes(board)
   }
 
   def checkBoxes(board: Board): Boolean = {
@@ -35,27 +35,29 @@ object Solution {
     val (isValid, _) = positions
       .map { case (x, y) => board(x)(y) }
       .filterNot(_ == '.')
-      .foldLeft((true, Set.empty[Char])) { case ((valid, set), char) =>
-        set.contains(char) match {
-          case true => (false, set)
-          case false => (valid, set + char)
-        }
+      .foldLeft((true, Set.empty[Char])) {
+        case ((valid, set), char) =>
+          set.contains(char) match {
+            case true  => (false, set)
+            case false => (valid, set + char)
+          }
       }
 
     isValid
   }
-  
+
   def checkHorizontal(board: Board): Boolean = {
     board
       .forall { row =>
         val (isValid, _) = row
           .filterNot(_ == '.')
-          .foldLeft((true, Set.empty[Char])) { case ((last, set), char) =>
-            if (set.contains(char)) {
-              (last && false, set)
-            } else {
-              (last && true, set + char)
-            }
+          .foldLeft((true, Set.empty[Char])) {
+            case ((last, set), char) =>
+              if (set.contains(char)) {
+                (last && false, set)
+              } else {
+                (last && true, set + char)
+              }
           }
         isValid
       }
@@ -63,27 +65,28 @@ object Solution {
 }
 
 object SolutionData {
+
   val b1 = Array(
-    Array('5','3','.','.','7','.','.','.','.'),
-    Array('6','.','.','1','9','5','.','.','.'),
-    Array('.','9','8','.','.','.','.','6','.'),
-    Array('8','.','.','.','6','.','.','.','3'),
-    Array('4','.','.','8','.','3','.','.','1'),
-    Array('7','.','.','.','2','.','.','.','6'),
-    Array('.','6','.','.','.','.','2','8','.'),
-    Array('.','.','.','4','1','9','.','.','5'),
-    Array('.','.','.','.','8','.','.','7','9')
+    Array('5', '3', '.', '.', '7', '.', '.', '.', '.'),
+    Array('6', '.', '.', '1', '9', '5', '.', '.', '.'),
+    Array('.', '9', '8', '.', '.', '.', '.', '6', '.'),
+    Array('8', '.', '.', '.', '6', '.', '.', '.', '3'),
+    Array('4', '.', '.', '8', '.', '3', '.', '.', '1'),
+    Array('7', '.', '.', '.', '2', '.', '.', '.', '6'),
+    Array('.', '6', '.', '.', '.', '.', '2', '8', '.'),
+    Array('.', '.', '.', '4', '1', '9', '.', '.', '5'),
+    Array('.', '.', '.', '.', '8', '.', '.', '7', '9')
   )
 
   val b2 = Array(
-    Array('8','3','.','.','7','.','.','.','.'),
-    Array('6','.','.','1','9','5','.','.','.'),
-    Array('.','9','8','.','.','.','.','6','.'),
-    Array('8','.','.','.','6','.','.','.','3'),
-    Array('4','.','.','8','.','3','.','.','1'),
-    Array('7','.','.','.','2','.','.','.','6'),
-    Array('.','6','.','.','.','.','2','8','.'),
-    Array('.','.','.','4','1','9','.','.','5'),
-    Array('.','.','.','.','8','.','.','7','9')
+    Array('8', '3', '.', '.', '7', '.', '.', '.', '.'),
+    Array('6', '.', '.', '1', '9', '5', '.', '.', '.'),
+    Array('.', '9', '8', '.', '.', '.', '.', '6', '.'),
+    Array('8', '.', '.', '.', '6', '.', '.', '.', '3'),
+    Array('4', '.', '.', '8', '.', '3', '.', '.', '1'),
+    Array('7', '.', '.', '.', '2', '.', '.', '.', '6'),
+    Array('.', '6', '.', '.', '.', '.', '2', '8', '.'),
+    Array('.', '.', '.', '4', '1', '9', '.', '.', '5'),
+    Array('.', '.', '.', '.', '8', '.', '.', '7', '9')
   )
 }

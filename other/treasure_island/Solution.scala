@@ -2,11 +2,12 @@ import scala.util.Try
 import scala.collection.immutable.Queue
 
 object Solution {
+
   val m1 = Array(
-    Array('O','O','O','O'),
-    Array('D','O','D','O'),
-    Array('O','O','O','O'),
-    Array('X','D','D','O'),
+    Array('O', 'O', 'O', 'O'),
+    Array('D', 'O', 'D', 'O'),
+    Array('O', 'O', 'O', 'O'),
+    Array('X', 'D', 'D', 'O')
   )
 
   type OceanGrid = Array[Array[Char]]
@@ -57,23 +58,23 @@ object Solution {
       choice(x - 1, y), // Up
       choice(x + 1, y), // Down
       choice(x, y - 1), // Left
-      choice(x, y + 1)  // Right
+      choice(x, y + 1) // Right
     ).flatten
   }
 
-  def mkChoice(grid: OceanGrid, history: History) = (x: Int, y: Int) => {
-    Try(grid(x)(y))
-      .toOption
-      // Isn't rocks and we haven't been there before.
-      .filterNot(_ == 'D' || history.get((x, y)).isDefined)
-      .map(_ => (x, y))
-  }
+  def mkChoice(grid: OceanGrid, history: History) =
+    (x: Int, y: Int) => {
+      Try(grid(x)(y)).toOption
+        // Isn't rocks and we haven't been there before.
+        .filterNot(_ == 'D' || history.get((x, y)).isDefined)
+        .map(_ => (x, y))
+    }
 
   def rebuildPath(map: History, coord: Coord): List[Coord] = {
     map.get(coord) match {
       case Some(next) if (next == START) => next :: Nil
-      case Some(next) => coord :: rebuildPath(map, next)
-      case None => Nil
+      case Some(next)                    => coord :: rebuildPath(map, next)
+      case None                          => Nil
     }
   }
 }
