@@ -11,13 +11,7 @@ cat > README.md << EOF
 # $2
 EOF
 
-cat > Solution.scala << EOF
-object Solution {
-  def main(args: Array[String]): Unit = {
-    println("no data...")
-  }
-}
-EOF
+touch solution.sc
 
 popd > /dev/null
 echo "New files created in $new_path"
