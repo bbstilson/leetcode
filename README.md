@@ -2,21 +2,23 @@
 
 Collection of my solutions to [LeetCode problems](https://leetcode.com/bbstilson/).
 
-**To run any particular solution:**
+## Running
+
+All solutions are written in Scala and are run as scripts using [Ammonite](http://ammonite.io).
 
 ```bash
-./run.sh difficulty/some_problem/
+amm difficulty/some_problem/solution.sc
 ```
 
 For example:
 
 ```bash
-./run.sh medium/valid_sudoku/
+amm medium/valid_sudoku/solution.sc
 true
 false
 ```
 
-**To create a new problem template:**
+## To create a new problem template
 
 ```bash
 ./new_problem.sh <difficulty> "Problem Name"

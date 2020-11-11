@@ -1,7 +1,6 @@
 import scala.util.Try
 import scala.collection.immutable.Queue
 
-
 val m1 = Array(
   Array('O', 'O', 'O', 'O'),
   Array('D', 'O', 'D', 'O'),
@@ -14,10 +13,6 @@ type Coord = (Int, Int)
 type History = Map[Coord, Coord]
 
 val START = (0, 0)
-
-def main(args: Array[String]): Unit = {
-  println(findRoute(m1))
-}
 
 def findRoute(grid: OceanGrid): Int = {
   val (treasureCoord, history) = findRoute(grid, Queue((0, 0)), Map.empty[Coord, Coord])
@@ -76,3 +71,5 @@ def rebuildPath(map: History, coord: Coord): List[Coord] = {
     case None                          => Nil
   }
 }
+
+println(findRoute(m1))

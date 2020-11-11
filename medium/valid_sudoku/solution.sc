@@ -1,10 +1,5 @@
 type Board = Array[Array[Char]]
 
-def main(args: Array[String]): Unit = {
-  println(isValidSudoku(b1))
-  println(isValidSudoku(b2))
-}
-
 def isValidSudoku(board: Board): Boolean = {
   checkHorizontal(board) &&
   checkHorizontal(board.transpose) &&
@@ -83,3 +78,6 @@ val b2 = Array(
   Array('.', '.', '.', '4', '1', '9', '.', '.', '5'),
   Array('.', '.', '.', '.', '8', '.', '.', '7', '9')
 )
+
+println(isValidSudoku(b1))
+println(isValidSudoku(b2))

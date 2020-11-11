@@ -1,7 +1,3 @@
-def main(args: Array[String]): Unit = {
-  println("no data for this one...")
-}
-
 def combinationSum(candidates: Array[Int], target: Int): List[List[Int]] = {
   findCombinationSum(
     candidates.toList,
