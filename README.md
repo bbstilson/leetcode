@@ -21,17 +21,13 @@ false
 ## To create a new problem template
 
 ```bash
-./new_problem.sh <difficulty> "Problem Name"
+amm new_problem.sc --difficulty easy|medium|hard|other --problem "Problem Name"
 ```
 
 For example:
 
 ```bash
-./new_prob.sh medium "Some Medium Thing"
-New files created: ./medium/some_medium_thing
-README.md Solution.scala
-
-Don't forget to update the Table of Contents!
+./new_prob.sh --difficulty medium --problem "Some Medium Thing"
 ```
 
 ## Table of Contents
