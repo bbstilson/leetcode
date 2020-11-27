@@ -46,6 +46,8 @@ For example:
 
 ### Medium
 
+[Course Schedule](/Users/home/projects/leetcode/medium/course_schedule)
+
 [Valid Sudoku](./medium/valid_sudoku)
 
 [Combination Sum](./medium/combination_sum)

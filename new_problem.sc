@@ -26,40 +26,23 @@ def main(
   val difficultyDir = difficulty.toString().toLowerCase()
   val problemDir = problem.split(" ").map(_.toLowerCase).mkString("_")
   val fullDir = pwd / s"$difficultyDir/$problemDir"
-  rm(fullDir)
-  mkdir(fullDir)
 
-  val readme = fullDir / "README.md"
+  mkdir(fullDir)
+  insertProblemToReadme(difficulty.toString(), problem, fullDir.toString())
+
+  val readme = (fullDir / "README.md").write(s"""# $problem\n""")
   val solution = fullDir / "solution.sc"
 
-  readme.write(s"""# $problem\n""")
-  solution
-    .write {
-      s"""|@main
-          |def main(): String = {
-          |  "hi"
-          |}""".stripMargin
-    }
-
-  insertProblemToReadme(difficultyDir, problem, fullDir.toString())
-
-  List(
-    s"New files created in $fullDir",
-    "To run:",
-    "amm -w easy/hi_hello/solution.sc"
-  ).foreach(println)
-  ""
+  s"amm -w .${solution.toString().stripPrefix(pwd.toString())}"
 }
 
 def insertProblemToReadme(difficulty: String, problem: String, fullDir: String): Unit = {
   val readme = pwd / "README.md"
-  println(difficulty)
   val newLines = readme.lines
     .foldLeft(List.empty[String]) {
       case (newLines, line) =>
         if (line.startsWith("###") && line.toLowerCase.contains(difficulty.toLowerCase())) {
           s"\n[$problem]($fullDir)" +: line +: newLines
-
         } else {
           line +: newLines
         }
