@@ -27,7 +27,7 @@ amm new_problem.sc --difficulty easy|medium|hard|other --problem "Problem Name"
 For example:
 
 ```bash
-./new_prob.sh --difficulty medium --problem "Some Medium Thing"
+amm new_problem.sc --difficulty medium --problem "Some Medium Thing"
 ```
 
 ## Table of Contents
@@ -45,6 +45,8 @@ For example:
 [reverse Integer](./easy/reverse_integer)
 
 ### Medium
+
+[Add Two Numbers](/Users/home/projects/leetcode/medium/add_two_numbers)
 
 [Course Schedule](/Users/home/projects/leetcode/medium/course_schedule)
 

@@ -1,22 +1,27 @@
 import $ivy.`com.github.pathikrit::better-files:3.9.1`
 
-import scopt._
 import better.files._
 import better.files.Dsl._
+import scala.util._
 
 object Difficulty extends Enumeration {
   type Difficulty = Value
   val Easy, Medium, Hard, Other = Value
-
-  implicit val readDiffculty = new Read[Difficulty.Difficulty] {
-
-    def reads: String => Difficulty.Difficulty =
-      (Difficulty.withName _).compose(_.capitalize)
-
-    def arity: Int = 1
-  }
 }
 import Difficulty._
+
+implicit object diffReader
+    extends mainargs.TokensReader[Difficulty](
+      "difficulty",
+      strs => {
+        val s = strs.head
+        val difficultyStr = s.head.toUpper +: s.tail.toLowerCase()
+        Try(Difficulty.withName(difficultyStr)) match {
+          case Failure(ex)    => Left(ex.getMessage())
+          case Success(value) => Right(value)
+        }
+      }
+    )
 
 @main
 def main(
@@ -31,7 +36,7 @@ def main(
   insertProblemToReadme(difficulty.toString(), problem, fullDir.toString())
 
   val readme = (fullDir / "README.md").write(s"""# $problem\n""")
-  val solution = fullDir / "solution.sc"
+  val solution = (fullDir / "solution.sc").touch()
 
   s"amm -w .${solution.toString().stripPrefix(pwd.toString())}"
 }
