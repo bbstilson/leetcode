@@ -46,6 +46,8 @@ amm new_problem.sc --difficulty medium --problem "Some Medium Thing"
 
 ### Medium
 
+[ZigZag Conversion](/Users/home/projects/leetcode/medium/zigzag_conversion)
+
 [Add Two Numbers](/Users/home/projects/leetcode/medium/add_two_numbers)
 
 [Course Schedule](/Users/home/projects/leetcode/medium/course_schedule)
